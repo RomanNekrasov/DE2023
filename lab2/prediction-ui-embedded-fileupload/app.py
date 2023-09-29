@@ -16,6 +16,7 @@ dp = DiabetesPredictor(os.environ.get('MODEL_NAME', 'MODEL_NAME environment vari
 
 # A decorator used to tell the application
 # which URL is associated function
+@app.route('/checkdiabetes', methods=["GET", "POST"])
 def check_diabetes():
     if request.method == "GET":
         return render_template("input_form_page.html")

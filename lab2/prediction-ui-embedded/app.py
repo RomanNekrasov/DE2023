@@ -13,6 +13,8 @@ from diabetes_predictor import DiabetesPredictor
 app = Flask(__name__)
 
 dp = DiabetesPredictor(os.environ.get('MODEL_NAME', 'MODEL_NAME environment variable is not set.'))
+
+
 # A decorator used to tell the application
 # which URL is associated function
 @app.route('/checkdiabetes', methods=["GET", "POST"])

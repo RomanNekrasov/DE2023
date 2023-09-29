@@ -15,6 +15,6 @@ class TestDiabetesPredictor:
             data = pd.read_json(json_file)
         dp = diabetes_predictor.DiabetesPredictor(model_file=test_model_file)
         status = dp.predict_single_record(data)
-        print(os.getcwd())
+       
         assert bool(status[0]) is not None
         assert bool(status[0]) is False
