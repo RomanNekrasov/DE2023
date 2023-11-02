@@ -4,7 +4,10 @@
 #    data_bucket: str
 #    dataset_uri: str
 #    model_repo: str
+<<<<<<< HEAD
 #    model_repo_uri: str
+=======
+>>>>>>> 4d934742ca9b1c299c09dc0c6878a2c95164b803
 #    project_id: str
 #    thresholds_dict_str: str
 # Outputs:
@@ -14,6 +17,7 @@ components:
   comp-condition-1:
     dag:
       tasks:
+<<<<<<< HEAD
         endpoint-create:
           cachingOptions:
             enableCache: true
@@ -101,6 +105,8 @@ components:
                 componentInputParameter: pipelinechannel--project_id
           taskInfo:
             name: model-upload
+=======
+>>>>>>> 4d934742ca9b1c299c09dc0c6878a2c95164b803
         upload-model-to-gcs:
           cachingOptions:
             enableCache: true
@@ -128,6 +134,7 @@ components:
           parameterType: BOOLEAN
         pipelinechannel--model_repo:
           parameterType: STRING
+<<<<<<< HEAD
         pipelinechannel--model_repo_uri:
           parameterType: STRING
         pipelinechannel--project_id:
@@ -197,6 +204,10 @@ components:
           description: Serialized JSON of `gcp_resources` [proto](https://github.com/kubeflow/pipelines/tree/master/components/google-cloud/google_cloud_pipeline_components/proto)
             which tracks the create Endpoint's long-running operation.
           parameterType: STRING
+=======
+        pipelinechannel--project_id:
+          parameterType: STRING
+>>>>>>> 4d934742ca9b1c299c09dc0c6878a2c95164b803
   comp-importer:
     executorLabel: exec-importer
     inputDefinitions:
@@ -209,6 +220,7 @@ components:
           artifactType:
             schemaTitle: system.Dataset
             schemaVersion: 0.0.1
+<<<<<<< HEAD
   comp-importer-2:
     executorLabel: exec-importer-2
     inputDefinitions:
@@ -221,6 +233,8 @@ components:
           artifactType:
             schemaTitle: google.UnmanagedContainerModel
             schemaVersion: 0.0.1
+=======
+>>>>>>> 4d934742ca9b1c299c09dc0c6878a2c95164b803
   comp-lr-model-evaluation:
     executorLabel: exec-lr-model-evaluation
     inputDefinitions:
@@ -249,6 +263,7 @@ components:
       parameters:
         approval:
           parameterType: BOOLEAN
+<<<<<<< HEAD
   comp-model-deploy:
     executorLabel: exec-model-deploy
     inputDefinitions:
@@ -488,6 +503,8 @@ components:
           description: Serialized JSON of `gcp_resources` [proto](https://github.com/kubeflow/pipelines/tree/master/components/google-cloud/google_cloud_pipeline_components/proto)
             which tracks the upload Model's long-running operation.
           parameterType: STRING
+=======
+>>>>>>> 4d934742ca9b1c299c09dc0c6878a2c95164b803
   comp-train-lr:
     executorLabel: exec-train-lr
     inputDefinitions:
@@ -535,6 +552,7 @@ components:
           parameterType: STRING
 deploymentSpec:
   executors:
+<<<<<<< HEAD
     exec-endpoint-create:
       container:
         args:
@@ -561,6 +579,8 @@ deploymentSpec:
         - -m
         - google_cloud_pipeline_components.container.v1.endpoint.create_endpoint.launcher
         image: gcr.io/ml-pipeline/google-cloud-pipeline-components:2.4.1
+=======
+>>>>>>> 4d934742ca9b1c299c09dc0c6878a2c95164b803
     exec-importer:
       importer:
         artifactUri:
@@ -568,6 +588,7 @@ deploymentSpec:
         typeSchema:
           schemaTitle: system.Dataset
           schemaVersion: 0.0.1
+<<<<<<< HEAD
     exec-importer-2:
       importer:
         artifactUri:
@@ -578,6 +599,8 @@ deploymentSpec:
         typeSchema:
           schemaTitle: google.UnmanagedContainerModel
           schemaVersion: 0.0.1
+=======
+>>>>>>> 4d934742ca9b1c299c09dc0c6878a2c95164b803
     exec-lr-model-evaluation:
       container:
         args:
@@ -630,6 +653,7 @@ deploymentSpec:
           \ threshold_check(float(accuracy), int(thresholds_dict['roc']))\n    return\
           \ outputs(approval_value)\n\n"
         image: python:3.10.7-slim
+<<<<<<< HEAD
     exec-model-deploy:
       container:
         args:
@@ -695,6 +719,8 @@ deploymentSpec:
         - -m
         - google_cloud_pipeline_components.container.v1.model.upload_model.launcher
         image: gcr.io/ml-pipeline/google-cloud-pipeline-components:2.4.1
+=======
+>>>>>>> 4d934742ca9b1c299c09dc0c6878a2c95164b803
     exec-train-lr:
       container:
         args:
@@ -837,8 +863,11 @@ root:
                 producerTask: lr-model-evaluation
             pipelinechannel--model_repo:
               componentInputParameter: model_repo
+<<<<<<< HEAD
             pipelinechannel--model_repo_uri:
               componentInputParameter: model_repo_uri
+=======
+>>>>>>> 4d934742ca9b1c299c09dc0c6878a2c95164b803
             pipelinechannel--project_id:
               componentInputParameter: project_id
         taskInfo:
@@ -918,8 +947,11 @@ root:
         parameterType: STRING
       model_repo:
         parameterType: STRING
+<<<<<<< HEAD
       model_repo_uri:
         parameterType: STRING
+=======
+>>>>>>> 4d934742ca9b1c299c09dc0c6878a2c95164b803
       project_id:
         parameterType: STRING
       thresholds_dict_str:
