@@ -1,0 +1,46 @@
+version: '3.9'
+
+services:
+  prediction-ui:
+    build:
+      context: ./path/to/prediction-ui
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    networks:
+      - network-a
+
+  prediction-api:
+    build:
+      context: ./path/to/prediction-api
+      dockerfile: Dockerfile
+    networks:
+      - network-b
+    environment:
+      - MODEL_REPO=usr/src/app/models
+    volumes:
+      - "/home/${USER_HOME}/models:/usr/src/app/models"
+
+  training-api:
+    build:
+      context: ./path/to/training-api
+      dockerfile: Dockerfile
+    ports:
+      - "5002:5000"
+    networks:
+      - network-b
+    depends_on:
+      - model-repo
+
+  model-repo:
+    build:
+      context: ./path/to/model-repo
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    networks:
+      - network-b
+
+networks:
+  network-a:
+  network-b:
